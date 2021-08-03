@@ -16,7 +16,13 @@ jobs:
       - name: run vcvars
         run: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsx86_amd64.bat"'
       - name: clone llvm
-        run: git clone --branch llvmorg-11.1.0 --single-branch --no-tags --depth 1 https://github.com/llvm/llvm-project.git llvm-project-min
+        run: git clone --branch llvmorg-11.1.0 --single-branch --no-tags --depth 1 https://github.com/llvm/llvm-project.git
+      - name: make cmake output dir
+        run: mkdir llvm
+      - name: generate llvm dir with MSVC build files
+        run: cmake "$((pwd).Path)\llvm-project\llvm" -D "CMAKE_INSTALL_PATH=$((pwd).Path)\llvm" -D CMAKE_BUILD_TYPE=Release -B "$((pwd).Path)\llvm" -G "Visual Studio 16 2019" -Thost=x64 -A x64
+      - name: build llvm
+        run: cmake --build llvm
   build_and_test_ubuntu:
     runs-on: ubuntu-latest
     steps:
