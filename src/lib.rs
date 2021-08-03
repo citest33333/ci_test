@@ -15,8 +15,7 @@ mod tests {
     }
 }
 
-#[allow(dead_code)]
-fn add<T>(a: T, b: T) -> T
+pub fn add<T>(a: T, b: T) -> T
 where
     T: Add<Output = T>,
 {
