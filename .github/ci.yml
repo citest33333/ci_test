@@ -1,4 +1,4 @@
-name: Rust
+name: CI
 
 on:
   push:
@@ -24,6 +24,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: run vcvars
         run: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsx86_amd64.bat"'
+      - name: clone llvm
+        run: git clone --branch llvmorg-11.1.0 --single-branch --no-tags --depth 1 https://github.com/llvm/llvm-project.git llvm-project-min 
 
   build_and_test_ubuntu:
     runs-on: ubuntu-latest

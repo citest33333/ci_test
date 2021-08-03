@@ -23,7 +23,7 @@ def main():
         "\"\"Do_not_edit_directly."
         "_See_readme_section_editing_github_workflows\"\""
         "\""
-        f" {args.WORKFLOW_PATH} > {github_dir}\\workflows\\{outfile}")
+        f" {args.WORKFLOW_PATH} > {github_dir}\\workflows\\_{outfile}")
 
 
 if __name__ == '__main__':
