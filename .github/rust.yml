@@ -20,7 +20,10 @@ anchors:
 jobs:
   build_and_test_windows:
     runs-on: windows-latest
-    steps: *steps
+    steps:
+      - uses: actions/checkout@v2
+      - name: run vcvars
+        run: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsx86_amd64.bat"'
 
   build_and_test_ubuntu:
     runs-on: ubuntu-latest
