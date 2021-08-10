@@ -6,4 +6,4 @@ Do not edit `.github/workflows/*.yml` directly. To support yaml anchors/aliasing
 
 - Install [yq](https://mikefarah.gitbook.io/yq/#install) if not already installed
 - Edit the desired `.github/*.yml`
-- cd into `.github` and run `python .github/gwp.py .github/<filename>.yml` where `<filename>` is replaced with the actual extension-less name of the file
+- cd into `.github` and run `python gwp.py`. This will glob for all `*.yml`, expand out the aliases, and dump it to `.github/workflows`
