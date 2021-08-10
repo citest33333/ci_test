@@ -24,7 +24,7 @@ jobs:
         run: git clone https://github.com/ValeLang/Vale --single-branch --branch master --depth 1
       - name: run vcvars and build-windows.bat
         working-directory: Vale
-        run: cmd /c '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsx86_amd64.bat" && .\build-windows.bat'
+        run: cmd /c '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" && .\build-windows.bat'
   build_and_test_ubuntu:
     runs-on: ubuntu-latest
     steps:
